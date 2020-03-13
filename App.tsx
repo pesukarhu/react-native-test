@@ -1,22 +1,18 @@
 import React from "react";
 import { Home } from "./app/views/Home";
 import { Contact } from "./app/views/Contact";
-import { StackNavigator } from "react-navigation";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
 
-const MyRoutes = StackNavigator(
-  {
-    HomeRT: {
-      screen: Home
-    },
-    ContactRT: {
-      screen: Contact
-    }
-  },
-  {
-    initialRouteName: "HomeRT"
-  }
-);
+const Stack = createStackNavigator();
 
 export default function App() {
-  return <MyRoutes />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Contact" component={Contact} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }

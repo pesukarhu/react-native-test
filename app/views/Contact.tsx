@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Header } from "../sections/header";
+import Header from "../sections/Header";
 
 export class Contact extends React.Component {
   static navigationOptions = {

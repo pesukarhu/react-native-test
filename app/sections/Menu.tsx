@@ -1,11 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
-import { StackNavigator } from "react-navigation";
 
 export interface Props {
-  navigation: StackNavigator;
+  navigate: Function;
 }
 export class Menu extends React.Component<Props> {
+  debugger;
   onPress = () => {
     Alert.alert("You tapped the button");
   };
@@ -27,7 +27,9 @@ export class Menu extends React.Component<Props> {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => this.props.navigate(ContactRT)}
+            onPress={() => {
+              this.props.navigate("Contact");
+            }}
           >
             <Text style={styles.buttonText}>Contact</Text>
           </TouchableOpacity>
