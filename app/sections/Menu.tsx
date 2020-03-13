@@ -5,7 +5,6 @@ export interface Props {
   navigate: Function;
 }
 export class Menu extends React.Component<Props> {
-  debugger;
   onPress = () => {
     Alert.alert("You tapped the button");
   };
