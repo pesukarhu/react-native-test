@@ -18,7 +18,7 @@ export class Home extends React.Component<Props> {
 
     return (
       <View style={styles.container}>
-        {/* <Header message="Tap to login" /> */}
+        <Header message="Tap to login" />
         <Menu navigate={navigate} />
       </View>
     );
