@@ -3,8 +3,6 @@ import { StyleSheet, Text, View } from "react-native";
 import { Header } from "../sections/Header";
 import { Menu } from "../sections/Menu";
 
-import { StackNavigationProp } from '@react-navigation/stack';
-
 export interface Props {
   navigation?: Object;
 }
