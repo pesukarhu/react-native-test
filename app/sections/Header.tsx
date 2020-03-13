@@ -9,7 +9,7 @@ interface State {
   isLoggedIn: boolean;
 }
 
-class Header extends React.Component<Props, State> {
+export class Header extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = { isLoggedIn: false };
@@ -56,5 +56,3 @@ const styles = StyleSheet.create({
     minHeight: 35
   }
 });
-
-export default Header;

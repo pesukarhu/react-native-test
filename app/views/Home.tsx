@@ -1,8 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Header from "../sections/Header";
+import { Header } from "../sections/Header";
 import { Menu } from "../sections/Menu";
 
+import { StackNavigationProp } from '@react-navigation/stack';
 
 export interface Props {
   navigation?: Object;
@@ -13,7 +14,6 @@ export class Home extends React.Component<Props> {
     header: null
   };
   render() {
-
     const { navigate } = this.props.navigation;
 
     return (
