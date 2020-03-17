@@ -1,50 +1,43 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
+import login from "../actions/actions";
 
 export interface Props {
   navigate: Function;
 }
-export class Menu extends React.Component<Props> {
-  onPress = () => {
-    Alert.alert("You tapped the button");
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.buttonRow}>
-          <TouchableOpacity style={styles.buttonStyle} onPress={this.onPress}>
-            <Text style={styles.buttonText}>Lessons</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonStyle} onPress={this.onPress}>
-            <Text style={styles.buttonText}>Register</Text>
-          </TouchableOpacity>
-        </View>
 
+export function Menu(props) {
+  const userInfo = useSelector(state => state);
+  const dispatch = useDispatch();
+
+  const loginUser = username => {
+    dispatch(login(username, true));
+  };
+
+  return (
+    <View style={styles.container}>
+      {userInfo && userInfo.loggedIn ? (
         <View style={styles.buttonRow}>
-          <TouchableOpacity style={styles.buttonStyle} onPress={this.onPress}>
-            <Text style={styles.buttonText}>Blog</Text>
-          </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
             onPress={() => {
-              this.props.navigate("Contact");
+              props.navigate("Contact");
             }}
           >
             <Text style={styles.buttonText}>Contact</Text>
           </TouchableOpacity>
         </View>
-
-        <View style={styles.buttonRow}>
-          <TouchableOpacity style={styles.buttonStyle} onPress={this.onPress}>
-            <Text style={styles.buttonText}>About</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonStyle} onPress={this.onPress}>
-            <Text style={styles.buttonText}>Link</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
-  }
+      ) : (
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => loginUser("test")}
+        >
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+      )}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

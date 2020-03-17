@@ -8,15 +8,11 @@ export interface Props {
 }
 
 export class Home extends React.Component<Props> {
-  static navigationOptions = {
-    header: null
-  };
   render() {
     const { navigate } = this.props.navigation;
 
     return (
       <View style={styles.container}>
-        {/* <Header message="Tap to login" /> */}
         <Menu navigate={navigate} />
       </View>
     );
